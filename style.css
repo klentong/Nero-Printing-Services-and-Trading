@@ -1,0 +1,483 @@
+/* ---------------- Reset & Global ---------------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #0f0f0f;
+    color: #fff;
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+}
+
+/* ---------------- Navbar ---------------- */
+.navbar {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 60px;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+}
+
+.logo {
+    font-weight: 700;
+    font-size: 18px;
+    letter-spacing: 2px;
+    color: #FFA500;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+}
+
+.nav-links li {
+    margin-left: 30px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 400;
+    transition: 0.3s;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: #a855f7;
+    font-weight: 600;
+}
+
+.menu-toggle {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* ---------------- Section Layout ---------------- */
+section {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    scroll-snap-align: start;
+    padding: 60px 20px;
+}
+
+h2 {
+    font-size: 50px;
+    margin-bottom: 150px;
+}
+
+/* ---------------- HERO SECTION ---------------- */
+.hero {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+    color: #FFA500;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(images/bg.jpg);
+    background-size: cover;
+    background-position: center;
+    filter: blur(10px);
+    background-color: rgba(0,0,0,0.4);
+    background-blend-mode: overlay;
+    z-index: 0;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+}
+
+.hero h1 {
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    margin-bottom: 30px;
+    font-weight: 300;
+    color: #ddd;
+}
+
+/* ---------------- BUTTONS: HOME, ABOUT, CONTACT ---------------- */
+#home button,
+#about button.see,
+.contact button {
+    padding: 12px 35px;
+    border: none;
+    border-radius: 50px;
+    background: linear-gradient(135deg, #FFA500, #FF8C00);
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    box-shadow: 0 8px 20px rgba(255, 140, 0, 0.4);
+    position: relative;
+    overflow: hidden;
+}
+
+#home button::after,
+#about button.see::after,
+.contact button::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.2);
+    transform: skewX(-20deg);
+    transition: all 0.5s ease;
+}
+
+#home button:hover,
+#about button.see:hover,
+.contact button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 25px rgba(255, 140, 0, 0.6);
+}
+
+#home button:hover::after,
+#about button.see:hover::after,
+.contact button:hover::after {
+    left: 200%;
+}
+
+/* ---------------- ABOUT SECTION ---------------- */
+#about p {
+    max-width: 600px;
+    margin-top: 40px;
+    font-size: 18px;
+    color: #ddd;
+}
+
+/* ---------------- CAROUSEL SLIDER ---------------- */
+.banner {
+    width: 250px;
+    height: 250px;
+    perspective: 1000px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.slider {
+    width: 200px;
+    height: 200px;
+    transform-style: preserve-3d;
+    animation: rotate 20s linear infinite;
+}
+
+.slider .item {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: rotateY(calc((var(--position) - 1) * 36deg)) translateZ(400px);
+    transform-style: preserve-3d;
+    transition: transform 0.5s ease;
+}
+
+.slider .item img {
+    width: 90%;
+    height: 90%;
+    object-fit: cover;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+}
+
+@keyframes rotate {
+    0% { transform: rotateY(0deg); }
+    100% { transform: rotateY(360deg); }
+}
+
+/* ---------------- CONTACT FORM ---------------- */
+.contact input,
+.contact textarea {
+    width: 100%;
+    max-width: 500px;
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 8px;
+    border: none;
+}
+
+.contact button {
+    font-size: 16px;
+}
+
+/* ---------------- FADE-IN ANIMATION ---------------- */
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: 1s;
+}
+
+.fade-in.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ---------------- SERVICES CAROUSEL ---------------- */
+.services-carousel {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    height: 500px; /* fixed height to contain images */
+    margin: 0 auto;
+    overflow: hidden; 
+}
+
+.services-carousel .list {
+    display: flex;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: 0.5s;
+}
+
+.services-carousel .item {
+    min-width: 70%;
+    height: 100%;
+    margin-right: 20px;
+    position: relative;
+    transition: 0.5s;
+    flex-shrink: 0;
+}
+
+.services-carousel .item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.6);
+}
+
+/* Text overlay inside image */
+.services-carousel .item .content {
+    position: absolute;
+    bottom: 40px;
+    left: 40px;
+    color: white;
+    z-index: 5;
+    max-width: 400px;
+}
+
+.services-carousel .item .content h3 {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.services-carousel .item .content p {
+    font-size: 16px;
+    color: #ddd;
+}
+
+/* Optional dark gradient for readability */
+.services-carousel .item::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 40%;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+    border-radius: 20px;
+}
+
+/* Buttons */
+.services-carousel .buttons {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+    transform: translateY(-50%);
+    z-index: 10;
+}
+
+.services-carousel button {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: none;
+    background: #FFA500;
+    color: #fff;
+    font-size: 22px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.services-carousel button:hover {
+    background: #CC8400;
+}
+
+/* ---------------- RESPONSIVE ---------------- */
+@media(max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        background: #111;
+        position: absolute;
+        top: 70px;
+        right: 20px;
+        padding: 20px;
+        border-radius: 10px;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .hero h1 { font-size: 30px; }
+    .hero p { font-size: 16px; }
+    #about h2 { font-size: 36px; margin-bottom: 20px; }
+    #about p { font-size: 16px; }
+
+    .banner { width: 200px; height: 200px; }
+    .slider { width: 150px; height: 150px; }
+    .slider .item {
+        transform: rotateY(calc((var(--position) - 1) * 36deg)) translateZ(200px);
+    }
+
+    .services-carousel { height: 400px; }
+    .services-carousel .item { min-width: 80%; }
+    .services-carousel .item .content h3 { font-size: 24px; }
+    .services-carousel .item .content p { font-size: 14px; }
+}
+
+/* ==================== CONTACT US ================== */
+
+/* ---------------- Horizontal Personnel Cards ---------------- */
+.card-container {
+    display: flex;
+    flex-wrap: nowrap;       /* Keep cards in a single row */
+    overflow-x: auto;        /* Scroll horizontally if needed */
+    gap: 20px;
+    padding: 20px;
+    justify-content: flex-start;
+    scroll-behavior: smooth;
+}
+
+.proprietor, .secretary {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 20px;
+    width: 250px;
+    text-align: center;
+    color: #fff;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    flex-shrink: 0;          /* Prevent shrinking */
+}
+
+.proprietor img, .secretary img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+    border: 3px solid #FFA500;
+    transition: transform 0.3s ease;
+}
+
+.proprietor label, .secretary label {
+    display: block;
+    margin: 5px 0;
+    font-size: 16px;
+}
+
+.proprietor:hover, .secretary:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(255, 140, 0, 0.5);
+}
+
+.proprietor:hover img, .secretary:hover img {
+    transform: scale(1.05);
+}
+
+/* ---------------- Scrollbar Styling ---------------- */
+.card-container::-webkit-scrollbar {
+    height: 8px;
+}
+
+.card-container::-webkit-scrollbar-track {
+    background: rgba(255,255,255,0.05);
+    border-radius: 10px;
+}
+
+.card-container::-webkit-scrollbar-thumb {
+    background: #FFA500;
+    border-radius: 10px;
+}
+
+/* ---------------- Responsive ---------------- */
+@media(max-width: 768px) {
+    .proprietor, .secretary {
+        width: 200px;
+    }
+
+    .proprietor img, .secretary img {
+        width: 100px;
+        height: 100px;
+    }
+
+    .proprietor label, .secretary label {
+        font-size: 14px;
+    }
+}
+
+
+.social-icons {
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.social-icons a {
+    color: #FFA500; /* matches your orange theme */
+    font-size: 20px;
+    transition: transform 0.3s, color 0.3s;
+}
+
+.social-icons a:hover {
+    transform: scale(1.2);
+    color: #FF8C00;
+}
+

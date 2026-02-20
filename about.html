@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>About Us</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #111;;
+    color: #fff;
+}
+
+/* Container */
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: auto;
+}
+
+/* Header */
+header {
+    background: #111;
+    color: #fff;
+    padding: 20px ;
+    text-align: left;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.7);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 36px;
+    letter-spacing: 2px;
+}
+
+/* 3D Box Style */
+.about-section,
+.team-member {
+    background: #111;
+    padding: 10px;
+    margin-top: 30px;
+    border-radius: 12px;
+    box-shadow: 
+        0 10px 20px rgba(0,0,0,0.8),
+        0 20px 40px rgba(0,0,0,0.6);
+    transition: all 0.4s ease;
+}
+
+/* Hover 3D lift */
+.about-section:hover,
+.team-member:hover {
+    transform: translateY(-10px);
+    box-shadow: 
+        0 20px 40px rgba(0,0,0,0.9),
+        0 30px 60px rgba(0,0,0,0.7);
+}
+
+/* About Content */
+.about-content {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 30px;
+}
+
+.about-text {
+    flex: 1;
+    min-width: 280px;
+}
+
+.about-text h2 {
+    color: #00ffff;
+}
+
+.about-image {
+    flex: 1;
+    min-width: 280px;
+}
+
+.about-image img {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.8);
+}
+
+/* Team Section */
+.team-section {
+    margin-top: 60px;
+    text-align: center;
+}
+
+.team-section h2 {
+    margin-bottom: 30px;
+    color: #00ffff;
+}
+
+.team {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+}
+
+.team-member {
+    width: 250px;
+    text-align: center;
+}
+
+.team-member img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 15px;
+    border: 3px solid #00ffff;
+}
+
+/* Responsive */
+@media(max-width: 768px) {
+    .about-content {
+        flex-direction: column;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="container">
+        <h1>About Us</h1>
+    </div>
+</header>
+
+<div class="container">
+
+    <section class="about-section">
+        <div class="about-content">
+            <div class="about-text">
+                <h2>Our Story</h2>
+                <p>
+                    We are a dedicated printing team committed to delivering high-quality print solutions with precision and creativity.
+                    Our journey began with a simple goal: to bring ideas to life through exceptional printing services and reliable craftsmanship.
+                </p>
+                <p>
+                    Over the years, we have grown into a trusted printing partner for businesses and individuals,
+                    offering everything from custom designs to large-scale production while maintaining a strong focus on quality and customer satisfaction.
+                </p>
+            </div>
+
+            <div class="about-image">
+                <img src="images/bg.jpg" alt="About Us Image">
+            </div>
+        </div>
+    </section>
+
+    <section class="team-section">
+        <h2>Meet Our Team</h2>
+
+        <div class="team">
+
+            <div class="team-member">
+                <img src="images/sec.PNG" alt="Team Member">
+                <h3>ACIRE LEE BANQUIL</h3>
+                <p>Secretary</p>
+            </div>
+
+            <div class="team-member">
+                <img src="images/sir.png" alt="Team Member">
+                <h3>REANNE NINO LOSAYNON</h3>
+                <p>Proprietor</p>
+            </div>
+
+            <div class="team-member">
+                <img src="images/dan.png" alt="Team Member">
+                <h3>DANILO A. CESNIROS JR.</h3>
+                <p>OJT Head</p>
+            </div>
+
+        </div>
+    </section>
+
+</div>
+
+</body>
+</html>
